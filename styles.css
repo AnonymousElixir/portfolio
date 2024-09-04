@@ -1,6 +1,6 @@
 body {
-    background: radial-gradient(circle, #000000, #003300);
-    color: #00ff00;
+    background: radial-gradient(circle, #000000, #1a1a1a);
+    color: #ff0000; /* Scary red text */
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     margin: 0;
@@ -24,37 +24,38 @@ body {
     background: rgba(0, 0, 0, 0.9);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+    border: 1px solid #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
     position: relative;
     overflow: hidden;
-    border: 1px solid #00ff00;
 }
 
 h1 {
     margin: 0;
     padding: 0;
     font-size: 2.5rem;
-    text-shadow: 0 0 20px #00ff00;
-    animation: flicker 1s infinite;
+    color: #ff0000;
+    text-shadow: 0 0 20px #ff0000;
+    animation: flicker 1s infinite, shake 0.5s infinite;
 }
 
 .output {
     margin: 0;
     padding: 5px 0;
-    animation: typewriter 2s steps(40, end) 1s 1 normal both;
+    animation: typewriter 2s steps(40, end) 1s 1 normal both, glitch 1s infinite;
     white-space: nowrap;
     overflow: hidden;
-    color: #00ff00;
+    color: #ff0000;
 }
 
 .input::before {
     content: attr(data-before);
-    color: #00ff00;
+    color: #ff0000;
     animation: blinkCursor 1s infinite;
 }
 
 a {
-    color: #00ff00;
+    color: #ff0000;
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
@@ -67,7 +68,7 @@ a::after {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #00ff00;
+    background: #ff0000;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
@@ -90,7 +91,7 @@ ul li {
 
 ul li::before {
     content: '→ ';
-    color: #00ff00;
+    color: #ff0000;
     position: absolute;
     left: -20px;
     opacity: 0.7;
@@ -98,12 +99,12 @@ ul li::before {
 
 #videoContainer {
     margin-top: 20px;
-    border: 2px solid #00ff00;
+    border: 2px solid #ff0000;
     padding: 10px;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
 }
 
 #videoContainer.hidden {
@@ -126,12 +127,12 @@ ul li::before {
     width: 100%;
     height: 100%;
     filter: contrast(1.5) brightness(0.8) sepia(1) hue-rotate(90deg) saturate(2);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
 }
 
 @keyframes flicker {
-    0%, 100% { text-shadow: 0 0 20px #00ff00; }
-    50% { text-shadow: 0 0 30px #00ff00; }
+    0%, 100% { text-shadow: 0 0 20px #ff0000; }
+    50% { text-shadow: 0 0 30px #ff0000; }
 }
 
 @keyframes typewriter {
@@ -141,7 +142,20 @@ ul li::before {
 
 @keyframes blinkCursor {
     0%, 100% { border-color: transparent; }
-    50% { border-color: #00ff00; }
+    50% { border-color: #ff0000; }
+}
+
+@keyframes glitch {
+    0% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
+    100% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
 }
 
 @keyframes bgAnimation {
