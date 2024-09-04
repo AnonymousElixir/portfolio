@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #000000, #003300);
+    background: radial-gradient(circle, #000000, #003300);
     color: #00ff00;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
@@ -10,37 +10,41 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    animation: bgAnimation 60s linear infinite;
 }
 
 .container {
     width: 80%;
-    max-width: 1000px;
+    max-width: 1200px;
     position: relative;
+    overflow: hidden;
 }
 
 #terminal {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
     position: relative;
     overflow: hidden;
+    border: 1px solid #00ff00;
 }
 
 h1 {
     margin: 0;
     padding: 0;
-    font-size: 2rem;
-    text-shadow: 0 0 10px #00ff00;
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px #00ff00;
     animation: flicker 1s infinite;
 }
 
 .output {
     margin: 0;
     padding: 5px 0;
-    animation: typewriter 2s steps(30, end) 1s 1 normal both;
+    animation: typewriter 2s steps(40, end) 1s 1 normal both;
     white-space: nowrap;
     overflow: hidden;
+    color: #00ff00;
 }
 
 .input::before {
@@ -52,8 +56,8 @@ h1 {
 a {
     color: #00ff00;
     text-decoration: none;
-    transition: color 0.3s ease;
     position: relative;
+    transition: color 0.3s ease;
 }
 
 a::after {
@@ -81,6 +85,15 @@ ul {
 
 ul li {
     padding: 5px 0;
+    position: relative;
+}
+
+ul li::before {
+    content: '→ ';
+    color: #00ff00;
+    position: absolute;
+    left: -20px;
+    opacity: 0.7;
 }
 
 #videoContainer {
@@ -90,6 +103,7 @@ ul li {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
 }
 
 #videoContainer.hidden {
@@ -116,8 +130,8 @@ ul li {
 }
 
 @keyframes flicker {
-    0%, 100% { text-shadow: 0 0 10px #00ff00; }
-    50% { text-shadow: 0 0 20px #00ff00; }
+    0%, 100% { text-shadow: 0 0 20px #00ff00; }
+    50% { text-shadow: 0 0 30px #00ff00; }
 }
 
 @keyframes typewriter {
@@ -128,4 +142,10 @@ ul li {
 @keyframes blinkCursor {
     0%, 100% { border-color: transparent; }
     50% { border-color: #00ff00; }
+}
+
+@keyframes bgAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
