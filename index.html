@@ -3,68 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Full Stack Developer</title>
+    <title>Access Granted</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>John Doe</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <div class="container">
+        <div id="terminal">
+            <h1>_WELCOME TO THE TERMINAL</h1>
+            <p class="output">Initializing system...</p>
+            <p class="output">Loading hacks...</p>
+            <p class="output">Establishing secure connection...</p>
+            <p class="output">Connection established. Access granted.</p>
+            <p class="input" data-before="user@hackerspace:~$">cat README.md</p>
+            <p class="output"># Welcome to the Hacker's Terminal</p>
+            <p class="output">Explore the files and tools below:</p>
+            <ul class="output">
+                <li><a href="#hacks">Hacks</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#logs">Logs</a></li>
+                <li><a href="#access">Access Points</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <section id="hero">
-        <h2>Hi, I'm John Doe</h2>
-        <p>Full Stack Developer | JavaScript Enthusiast | Problem Solver</p>
-        <a href="#projects" class="btn">View My Work</a>
-    </section>
-
-    <section id="about" class="content-section">
-        <h3>About Me</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.</p>
-    </section>
-
-    <section id="projects" class="content-section">
-        <h3>Projects</h3>
-        <div class="project-grid">
-            <div class="project">
-                <h4>Project One</h4>
-                <p>Amazing project that does amazing things.</p>
-                <a href="javascript:void(0)" class="project-link" id="projectOne">View Project</a>
-            </div>
-            <div class="project">
-                <h4>Project Two</h4>
-                <p>Another great project that showcases my skills.</p>
-                <a href="javascript:void(0)" class="project-link" id="projectTwo">View Project</a>
-            </div>
+            <p class="input" data-before="user@hackerspace:~$">explore hacks</p>
+            <p class="output">Hacks initialized...</p>
+            <ul class="output">
+                <li><a href="javascript:void(0)" id="hackOne">Exploit-1.0</a></li>
+                <li><a href="javascript:void(0)" id="hackTwo">Decrypt-Tool</a></li>
+            </ul>
         </div>
-    </section>
-
-    <section id="skills" class="content-section">
-        <h3>Skills</h3>
-        <p>HTML, CSS, JavaScript, React, Node.js, Python, and more.</p>
-    </section>
-
-    <section id="contact" class="content-section">
-        <h3>Contact</h3>
-        <form>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 John Doe. All rights reserved.</p>
-    </footer>
-
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
