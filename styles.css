@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background: linear-gradient(135deg, #000000, #003300);
     color: #00ff00;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
@@ -9,45 +9,69 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container {
     width: 80%;
-    max-width: 800px;
+    max-width: 1000px;
+    position: relative;
 }
 
 #terminal {
-    background-color: #111;
+    background: rgba(0, 0, 0, 0.8);
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
     position: relative;
+    overflow: hidden;
 }
 
 h1 {
     margin: 0;
-    padding: 0 0 20px;
-    font-size: 1.5rem;
+    padding: 0;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #00ff00;
+    animation: flicker 1s infinite;
 }
 
 .output {
     margin: 0;
     padding: 5px 0;
+    animation: typewriter 2s steps(30, end) 1s 1 normal both;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .input::before {
     content: attr(data-before);
     color: #00ff00;
+    animation: blinkCursor 1s infinite;
 }
 
 a {
     color: #00ff00;
     text-decoration: none;
     transition: color 0.3s ease;
+    position: relative;
 }
 
-a:hover {
-    color: #fff;
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #00ff00;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 ul {
@@ -63,7 +87,9 @@ ul li {
     margin-top: 20px;
     border: 2px solid #00ff00;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
 #videoContainer.hidden {
@@ -75,8 +101,8 @@ ul li {
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-    max-width: 100%;
     background-color: #000;
+    border-radius: 10px;
 }
 
 #rickrollVideo {
@@ -86,5 +112,20 @@ ul li {
     width: 100%;
     height: 100%;
     filter: contrast(1.5) brightness(0.8) sepia(1) hue-rotate(90deg) saturate(2);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+@keyframes flicker {
+    0%, 100% { text-shadow: 0 0 10px #00ff00; }
+    50% { text-shadow: 0 0 20px #00ff00; }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #00ff00; }
 }
