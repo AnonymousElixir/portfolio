@@ -1,6 +1,6 @@
 body {
-    background: radial-gradient(circle, #000000, #1a1a1a);
-    color: #ff0000; /* Scary red text */
+    background: radial-gradient(circle, #000000, #333333);
+    color: #ff0000; /* Blood red text */
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     margin: 0;
@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    animation: bgAnimation 60s linear infinite;
+    animation: bgFlicker 2s infinite;
 }
 
 .container {
@@ -21,11 +21,11 @@ body {
 }
 
 #terminal {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     padding: 20px;
     border-radius: 15px;
-    border: 1px solid #ff0000;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.9);
     position: relative;
     overflow: hidden;
 }
@@ -33,19 +33,20 @@ body {
 h1 {
     margin: 0;
     padding: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #ff0000;
-    text-shadow: 0 0 20px #ff0000;
-    animation: flicker 1s infinite, shake 0.5s infinite;
+    text-shadow: 0 0 30px #ff0000;
+    animation: flicker 0.5s infinite, shake 1s infinite;
 }
 
 .output {
     margin: 0;
     padding: 5px 0;
-    animation: typewriter 2s steps(40, end) 1s 1 normal both, glitch 1s infinite;
+    animation: typewriter 3s steps(40, end) 1s 1 normal both, glitch 1s infinite;
     white-space: nowrap;
     overflow: hidden;
     color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
 }
 
 .input::before {
@@ -58,7 +59,7 @@ a {
     color: #ff0000;
     text-decoration: none;
     position: relative;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a::after {
@@ -77,6 +78,7 @@ a::after {
 a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+    text-shadow: 0 0 15px #ff0000;
 }
 
 ul {
@@ -85,26 +87,29 @@ ul {
 }
 
 ul li {
-    padding: 5px 0;
+    padding: 10px 0;
     position: relative;
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
 }
 
 ul li::before {
     content: '→ ';
     color: #ff0000;
     position: absolute;
-    left: -20px;
-    opacity: 0.7;
+    left: -30px;
+    opacity: 0.8;
 }
 
 #videoContainer {
     margin-top: 20px;
-    border: 2px solid #ff0000;
+    border: 3px solid #ff0000;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+    background: #000;
 }
 
 #videoContainer.hidden {
@@ -126,13 +131,13 @@ ul li::before {
     left: 0;
     width: 100%;
     height: 100%;
-    filter: contrast(1.5) brightness(0.8) sepia(1) hue-rotate(90deg) saturate(2);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    filter: contrast(1.7) brightness(0.6) sepia(1) hue-rotate(90deg) saturate(2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
 }
 
 @keyframes flicker {
-    0%, 100% { text-shadow: 0 0 20px #ff0000; }
-    50% { text-shadow: 0 0 30px #ff0000; }
+    0%, 100% { text-shadow: 0 0 30px #ff0000; }
+    50% { text-shadow: 0 0 50px #ff0000; }
 }
 
 @keyframes typewriter {
@@ -146,20 +151,23 @@ ul li::before {
 }
 
 @keyframes glitch {
-    0% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
-    50% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
-    100% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+    0% { text-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
+    25% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
+    50% { text-shadow: 0 0 25px rgba(255, 0, 0, 0.5); }
+    75% { text-shadow: 0 0 30px rgba(255, 0, 0, 0.8); }
+    100% { text-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
 }
 
 @keyframes shake {
     0%, 100% { transform: rotate(0); }
-    25% { transform: rotate(-2deg); }
-    50% { transform: rotate(2deg); }
-    75% { transform: rotate(-2deg); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
 }
 
-@keyframes bgAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+@keyframes bgFlicker {
+    0% { background-color: #000000; }
+    50% { background-color: #1a1a1a; }
+    100% { background-color: #000000; }
 }
